@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group">
+      <input type="text" ng-model="query" class="form-control" placeholder="Search for an Element">
+    </div>
+  </div>
+</div>
+
+<div id="list-heading" class="col-md-12">
+  <div class="col-sm-2">
+    <p>Number</p>
+  </div>
+  <div class="col-sm-2">
+    <p>Name</p>
+  </div>
+  <div class="col-sm-2">
+    <p>Symbol</p>
+  </div>
+  <div class="col-sm-2">
+    <p>Weight</p>
+  </div>
+  <div class="col-sm-2">
+    <p>Electrons</p>
+  </div>
+</div>
+
+<!-- ELEMENTS LIST - ASSEMBLED BY ANGULAR -->
+<div id="element-list" class="col-md-12" ng-repeat="row in elements_rows">
+  <div ng-repeat="element in row">
+    <div class="row" ng-repeat="item in filtered = ( element | filter: query:startsWith )" ng-hide="item.class === 'blank-element' || item.class === 'lanthanide-placeholder' || item.class === 'actinide-placeholder'">
+      <div class="col-sm-2">{{ item.number }}</div>
+      <div class="col-sm-2"><a target="_blank" href="http://en.wikipedia.org/wiki/{{ item.name }}">{{ item.name }}</a></div>
+      <div class="col-sm-2">{{ item.symbol }}</div>
+      <div class="col-sm-2">{{ item.weight }}</div>
+      <div class="col-sm-2">{{ item.electrons }}</div>
+    </div>
+  </div>
+</div>

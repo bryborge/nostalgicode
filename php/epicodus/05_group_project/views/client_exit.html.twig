@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Client Search | Exit</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='/../css/styles.css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class='container-fluid'>
+
+            <!-- TOP NAVIGATION -->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">CMS</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <!-- <li><a href='/'>Client Search<span class="sr-only">(current)</span></a></li> -->
+                            <li><a href="/dashboard">Dashboard</a></li>
+                            <li class="dropdown">
+                                <!-- ADMIN DROPDOWN -->
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/admin_meds_edit">Meds List</a></li>
+                                    <li><a href="/admin_flags_edit">Flags List</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="/admin_staff_edit">Staff List</a></li>
+                                </ul>
+                            <li class="dropdown">
+                                <!-- QUERIES DROPDOWN -->
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Queries<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Intakes - Last Month</a></li>
+                                    <li><a href="#">Intakes - 6 Months</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Database Dump</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/docs">Documentation</a></li>
+                            <li><a href="/credits">Credits</a></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <form class="navbar-form navbar-left" role="search">
+                                <div class="input-group">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                    </div>
+                                    <span class="input-group-btn">
+                                        <button type='submit' class='btn btn-primary'><span class="glyphicon glyphicon-search"></span></button>
+                                    </span>
+                                </div>
+                            </form>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+
+
+            <!-- HEADER -->
+            <div class='page-header'>
+                <h1>Client Search</h1>
+                <p>an open-source client management system</p>
+            </div>
+
+            <!-- MAIN CONTENT -->
+            <h2>Exit Buckwheat Steve</h2>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <form action="/dashboard/id/client_exited" method="post">
+                        <div class="form-group">
+                            <label for="exit-date">Date</label>
+                            <input type="text" name="exit-date" placeholder="Exit Date" class="form-control">
+
+                            <label for="exit-time">Time</label>
+                            <input type="text" name="exit-time" placeholder="Exit Time" class="form-control">
+
+                            <label for="exit-by">Who Exited</label>
+                            <input type="text" name="exit-by" placeholder="Who Exited" class="form-control">
+
+                            <label for="destination">Destination</label>
+                            <input type="text" name="destination" placeholder="Destination" class="form-control">
+                        </div>
+
+                        <button type="submit" name="button" formaction="/dashboard" class="btn btn-default">Cancel</button>
+                        <button type="submit" name="button" class="btn btn-danger">Exit Client</button>
+                    </form>
+                </div>
+
+                {% if exited %}
+                    <div id="success-msg" class="col-md-6">
+                        <h2>Client has been exited!</h2>
+
+                        <form action="/dashboard" method="post">
+                            <button type="submit" class="btn btn-default" formaction="/">Home</button>
+                            <button type="submit" class="btn btn-success">Dashboard</button>
+                        </form>
+                    </div>
+                {% endif %}
+
+            </div>
+
+
+        </div><!-- END DIV CONTAINER -->
+    </body>
+    <footer>
+        <!-- unsure what will go here.  epicodus link, perhaps? github linl?  credits? -->
+    </footer>
+</html>

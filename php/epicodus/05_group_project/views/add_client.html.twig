@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Client Search | Add Client</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='css/styles.css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class='container-fluid'>
+
+            <!-- TOP NAVIGATION -->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">CMS</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <!-- <li><a href='/'>Client Search<span class="sr-only">(current)</span></a></li> -->
+                            <li><a href="/dashboard">Dashboard</a></li>
+                            <li class="dropdown">
+                                <!-- ADMIN DROPDOWN -->
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/admin_meds_edit">Meds List</a></li>
+                                    <li><a href="/admin_flags_edit">Flags List</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="/admin_staff_edit">Staff List</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <!-- QUERIES DROPDOWN -->
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Queries<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Intakes - Last Month</a></li>
+                                    <li><a href="#">Intakes - 6 Months</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Database Dump</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/docs">Documentation</a></li>
+                            <li><a href="/credits">Credits</a></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <form class="navbar-form navbar-left" role="search">
+                                <div class="input-group">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                    </div>
+                                    <span class="input-group-btn">
+                                        <button type='submit' class='btn btn-primary'><span class="glyphicon glyphicon-search"></span></button>
+                                    </span>
+                                </div>
+                            </form>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+
+
+            <!-- HEADER -->
+            <div class='page-header'>
+                <h1>Client Search</h1>
+                <p>an open-source client management system</p>
+            </div>
+
+            <!-- MAIN CONTENT -->
+            <h2>Add a New Client</h2>
+
+            <div class="row">
+
+                <!-- EDIT CLIENT INFORMATION -->
+                <div class="col-md-6">
+                    <form action="#" method="post">
+                        <h4>Basic</h4>
+                        <div class="form-group">
+                            <label for="first_name">First</label>
+                            <input type="text" name="first_name" placeholder="First Name" class="form-control">
+
+                            <label for="last_name">Last</label>
+                            <input type="text" name="last_name" placeholder="Last Name" class="form-control">
+
+                            <label for="alias">Alias</label>
+                            <input type="text" name="alias" placeholder="Alias (i.e. Street Name or Nickname)" class="form-control">
+
+                            <label for="dob">Birth Date</label>
+                            <input type="text" name="dob" placeholder="Date of Birth" class="form-control">
+
+                            <label for="gender">Gender</label>
+                            <select class="form-control" name="gender">
+                                <option value="" disabled selected>Please select</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="transgender">Transgender</option>
+                                <option value="unknown">Unknown</option>
+                            </select>
+                            <!-- <input type="text" name="gender" placeholder="Gender" class="form-control"> -->
+
+                            <label for="race">Race</label>
+                            <select class="form-control" name="race">
+                                <option value="" disabled selected>Please select</option>
+                                <option value="white">White</option>
+                                <option value="african">African American</option>
+                                <option value="hispanic">Latino</option>
+                                <option value="asian">Asian</option>
+                                <option value="islander">Pacific Islander</option>
+                                <option value="unknown">Unknown</option>
+                            </select>
+                            <!-- <input type="text" name="race" class="form-control"> -->
+
+                            <label for="ethnicity">Ethnicity</label>
+                            <select class="form-control" name="ethnicity">
+                                <option value="" disabled selected>Please select</option>
+                                <option value="african">African American</option>
+                                <option value="hispanic">Hispanic</option>
+                                <option value="white">Anglo-European</option>
+                                <option value="other">Other</option>
+                                <option value="unknown">Unknown</option>
+                            </select>
+                            <!-- <input type="text" name="ethnicity" class="form-control"> -->
+
+                            <label for="notes">Notes</label>
+                            <textarea name="notes" class="form-control" rows="3" cols="40"></textarea>
+                        </div>
+
+
+                        <h4>Flags</h4>
+                        <div class="form-group">
+                            <label for="admit_status">Admit Status</label>
+                            <select class="form-control" name="admit_status">
+                                <option value="" disabled selected>Please select</option>
+                                <option value="admitable">Admittable</option>
+                                <option value="prior-approval">Supervisor Approval Required</option>
+                                <option value="no-admit">Not Admittable</option>
+                            </select>
+                            <!-- <input type="text" name="admit-status" placeholder="Admit Status" class="form-control"> -->
+
+                            <label for="last_assessed">Last Assessed</label>
+                            <input type="text" name="last_assessed" placeholder="Last Assessed" class="form-control">
+
+                            <label for="flag_type">Flag Type</label>
+                            <select class="form-control" name="flag_type">
+                                {% if flags is not empty %}
+                                        <option value="" disabled selected>Please select</option>
+                                    {% for flag in flags %}
+                                        <option value="{{ flag.getId }}">{{ flag.getFlagType }}</option>
+                                    {% endfor %}
+                                {% else %}
+                                    <option value="" disabled selected>Please create a new flag in the admin area</option>
+                                {% endif %}
+
+                            </select>
+
+                    <label for="allergies">Allergies</label>
+                    <select class="form-control" name="allergies">
+                        <option value="" disabled selected>Please select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                    <!-- <input type="text" name="allergies" placeholder="Allergies" class="form-control"> -->
+                </div>
+
+                <button class="btn btn-default" name="cancel" formaction="/">Cancel</button>
+                <button class="btn btn-primary" name="add">Add Client</button>
+            </form>
+            </div>
+
+                <!-- SUCCESS MESSAGE -->
+                {% if added %}
+                    <div id="success-msg" class="col-md-6">
+                        <h2>Client has been added!</h2>
+                        <p>Would you like to create a stay record for this client?</p>
+
+                        <form action="/add_client_stay/{{ client.getId }}" method="post">
+                            <button type="submit" class="btn btn-default" formaction="/">Home</button>
+                            <button type="submit" class="btn btn-success">Add Stay</button>
+                        </form>
+                    </div>
+                {% endif %}
+            </div>
+
+
+        </div><!-- END DIV CONTAINER -->
+    </body>
+    <footer>
+            <!-- unsure what will go here.  epicodus link, perhaps? github linl?  credits? -->
+    </footer>
+</html>

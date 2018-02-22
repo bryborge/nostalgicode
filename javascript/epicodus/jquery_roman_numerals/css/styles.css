@@ -1,0 +1,14 @@
+#result {
+    display: none;
+}
+
+img {
+    height: 120px;
+    width: 100px;
+    margin: 10px 10px 10px 0;
+    float: left;
+}
+
+h1 {
+    padding: 50px 0;
+}

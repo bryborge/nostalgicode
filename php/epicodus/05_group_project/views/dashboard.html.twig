@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Client Search | Dashboard</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='/../css/styles.css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class='container-fluid'>
+
+            <!-- TOP NAVIGATION -->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">CMS</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <!-- <li><a href='/'>Client Search<span class="sr-only">(current)</span></a></li> -->
+                            <li class="active"><a href="/dashboard">Dashboard</a></li>
+                            <li class="dropdown">
+                                <!-- ADMIN DROPDOWN -->
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/admin_meds_edit">Meds List</a></li>
+                                    <li><a href="/admin_flags_edit">Flags List</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="/admin_staff_edit">Staff List</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <!-- QUERIES DROPDOWN -->
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Queries<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Intakes - Last Month</a></li>
+                                    <li><a href="#">Intakes - 6 Months</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Database Dump</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/docs">Documentation</a></li>
+                            <li><a href="/credits">Credits</a></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <form class="navbar-form navbar-left" role="search">
+                                <div class="input-group">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                    </div>
+                                    <span class="input-group-btn">
+                                        <button type='submit' class='btn btn-primary'><span class="glyphicon glyphicon-search"></span></button>
+                                    </span>
+                                </div>
+                            </form>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+
+
+            <!-- HEADER -->
+            <div class='page-header'>
+                <h1>Client Search</h1>
+                <p>an open-source client management system</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Welcome, staff member!</h2>
+
+                    <p>Here are all current clients in the facility</p>
+                    <ul>
+                        <li>
+                            <form action='/dashboard/{id}/client_exit' method='post' class='form-inline'>
+                                <!-- <input type='hidden' name='#' value='#'> -->
+                                <button type='submit' class='btn btn-warning btn-xs'>Exit</button>
+                            </form>
+                            <a href="/dashboard/{id}">Buckwheat Steve <em>- "Buck"</em></a>
+                        </li>
+                        <li>
+                            <form action='/dashboard/{id}/client_exit' method='post' class='form-inline'>
+                                <!-- <input type='hidden' name='#' value='#'> -->
+                                <button type='submit' class='btn btn-warning btn-xs'>Exit</button>
+                            </form>
+                            <a href="/dashboard/{id}">Bilbo Baggins <em>- "Filthy Hobbitses"</em></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-6">
+
+                    <form action="#" method="post">
+                        <h2>Buckwheat's Information
+                            <form action="/client_edit" method="post">
+                                <button type="submit" formaction="/dashboard/client_edit" class="btn btn-success btn-sm" id="edit-client-btn">Edit</button>
+                            </form>
+                        </h2>
+                    </form>
+
+                    <div class="container-fluid">
+                        <h4>Basic</h4>
+                        <p><strong>Age:</strong> 16</p>
+                        <p><strong>Gender:</strong> Male</p>
+                        <p><strong>Ethnicity:</strong> African American, Caucasian</p>
+                    </div>
+
+                    <div class="container-fluid">
+                        <h4>Flags</h4>
+                        <p><strong>Admit Status:</strong> Green light</p>
+                        <p><strong>Last Assessed:</strong> March 12, 2015</p>
+                        <p><strong>Flag Info:</strong> None</p>
+
+                    </div>
+
+                    <div class="container-fluid">
+                        <h4>Stay</h4>
+                        <p><strong>Intake Staff:</strong> Jessica McGee</p>
+                        <p><strong>Social Worker:</strong> Edwin Chapin</p>
+                        <p><strong>Intake:</strong> March 13 2015 - 16:35</p>
+                        <p><strong>Previous Stay:</strong> June 29 2014 - 03:19</p>
+                        <p><strong>Run/Risk:</strong> Runaway</p>
+                    </div>
+
+                    <div class="container-fluid">
+                        <h4>Health Information</h4>
+                        <p><strong>Medication:</strong> <a href="/dashboard/{id}/client_meds_edit">Yes</a></p>
+                        <p><strong>Allergies:</strong> <a href="/dashboard/{id}/client_allergies">No</a></p>
+                        <p><strong>Lice:</strong> No</p>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div><!-- END DIV CONTAINER -->
+    </body>
+    <footer>
+        <!-- unsure what will go here.  epicodus link, perhaps? github linl?  credits? -->
+    </footer>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Repeat Counter</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+        <link href='http://fonts.googleapis.com/css?family=Black+Ops+One' rel='stylesheet' type='text/css'>
+        <link rel='stylesheet' href='css/styles.css'>
+    </head>
+    <body>
+        <div class='container'>
+            <div class='page-header'>
+                <a href='/'><h1><img src='/img/logo.png' class='logo'>CHECK WORD REDUNDANCY</h1></a>
+            </div>
+
+            <form action='/results' method='post'>
+                <div class='form-group'>
+
+                    <h4>enter a string of words to search in</h4>
+                    <input type='text' name='string' class='form-control'>
+
+                    <h4 for='search-word'>enter a word to look for</h4>
+                    <h6>*a single word only, please</h6>
+                    <input type='text' name='search-word' class='form-control'>
+
+                    <button name='search' class='btn btn-success'>Search</button>
+
+                </div>
+            </form>
+
+        </div>
+    </body>
+</html>

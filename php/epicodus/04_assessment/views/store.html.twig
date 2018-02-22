@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- META -->
+        <meta charset='utf-8'>
+
+        <!-- PAGE TITLE -->
+        <title>Sick Kicks | {{ store.getName }} Store</title>
+
+        <!-- STYLES -->
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='/../css/styles.css'>
+    </head>
+    <body>
+        <div class='container-fluid'>
+
+            <!-- PAGE BANNER -->
+            <div class='page-header'>
+                <a href='/'><img src='/../img/logo.png' alt='shoe logo'>
+                <h1>Sick Kicks</h1>
+                <h5>Walk through life, in style</h5></a>
+            </div>
+
+            <!-- MAIN CONTENT -->
+            <div class='row'>
+                <div class='col-md-4'>
+                    <h2>{{ store.getName }} Store</h2>
+                    <h5>Here are the shoe brands we carry</h5>
+
+                    {% if store_brands is not empty %}
+                        <ul>
+                            {% for brand in store_brands %}
+                                <li>{{ brand.getName }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p><em>List is empty.</em></p>
+                    {% endif %}
+                </div>
+
+                <div class='col-md-8'>
+                    <form action='/store/{{ store.getId }}' method='post'>
+                        <input type='hidden' name='_method' value='patch'>
+                        <label for='edit_store'>Change Store Name</label>
+                        <input type='text' name='edit_store' class='form-control'>
+
+                        <button type='submit' class='btn btn-primary'>Update</button>
+                    </form>
+
+                    <h3>All Shoe Brands</h3>
+                    <ul>
+                        {% for brand in brands %}
+                            <li>
+                                <form action='/store/{{ store.getId }}/add_brand' method='post' class='form-inline'>
+                                    <input type='hidden' name='brand_id' value='{{ brand.getId }}'>
+                                    <button type='submit'class='btn btn-success btn-xs'>&#10004;</button>
+                                </form>
+                                {{ brand.getName }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

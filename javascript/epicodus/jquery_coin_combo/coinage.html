@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Coinage Op</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="css/styles.css" type="text/css">
+        <script src="js/jquery-1.11.2.js"></script>
+        <script src="js/scripts.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Get Ready to Count out Yer Coin!</h1>
+
+            <form id="change-input">
+                <div class="form-group">
+                    <label for="change">How much change are you owed?</label>
+                    <input type="float" name="change" id="change" class="form-control" placeholder="0.00">
+                </div>
+                <button type="submit" class="btn btn-info">Count</button>
+            </form>
+
+            <div id="result">
+                <h3>Here are the coins you'll get:</h3>
+                <p id="p-quarters">Quarters: <span id="quarters" class="text-danger"></span></p>
+                <p id="p-dimes">Dimes: <span id="dimes" class="text-danger"></span></p>
+                <p id="p-nickels">Nickels: <span id="nickels" class="text-danger"></span></p>
+                <p id="p-pennies">Pennies: <span id="pennies" class="text-danger"></span></p>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- META -->
+        <meta charset='utf-8'>
+
+        <!-- PAGE TITLE -->
+        <title>Sick Kicks | Homepage</title>
+
+        <!-- STYLES -->
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='/../css/styles.css'>
+    </head>
+    <body>
+        <div class='container-fluid'>
+
+            <!-- PAGE BANNER -->
+            <div class='page-header'>
+                <a href='/'><img src='/../img/logo.png' alt='shoe logo'>
+                <h1>Sick Kicks</h1>
+                <h5>Walk through life, in style</h5></a>
+            </div>
+
+            <div class='row'>
+                <div class='col-md-12'>
+                    <h5 id='description'>Ever wanted to keep track of the stores that carry your favorite brand of shoes?  Try <strong><u>Sick Kicks</u></strong> now!</h5>
+                </div>
+            </div>
+
+            <!-- MAIN CONTENT -->
+            <div class='row'>
+                <div class='col-md-6'>
+                    <form action='/stores' method='post'>
+                        <label for='add_store'>Store Name</label>
+                        <input type='text' name='add_store' class='form-control'>
+
+                        <button type='submit' class='btn btn-primary'>Add Store</button>
+                    </form>
+
+                    <h3>Stores:</h3>
+                    {% if stores is not empty %}
+                        <ul>
+                            {% for store in stores %}
+                                <li>
+                                    <form action='/stores/{{ store.getId }}/delete' method='post' class='form-inline'>
+                                        <input type='hidden' name='_method' value='delete'>
+                                        <input type='hidden' name='store_id' value='{{ store.getId }}'>
+                                        <button type='submit' class='btn btn-danger btn-xs'>&#10008;</button>
+                                    </form>
+                                    <a href='/store/{{ store.getId }}'>{{ store.getName }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+
+                <div class='col-md-6'>
+                    <form action='/brands' method='post'>
+                        <label for='add_brand'>Brand Name</label>
+                        <input type='text' name='add_brand' class='form-control'>
+
+                        <button type='submit' class='btn btn-primary'>Add Brand</button>
+                    </form>
+
+                    <h3>Brands:</h3>
+                    {% if brands is not empty %}
+                        <ul>
+                            {% for brand in brands %}
+                                <li>
+                                    <form action='/brands/{{ brand.getId }}/delete' method='post' class='form-inline'>
+                                        <input type='hidden' name='_method' value='delete'>
+                                        <input type='hidden' name='brand_id' value='{{ brand.getId }}'>
+                                        <button type='submit' class='btn btn-danger btn-xs'>&#10008;</button>
+                                    </form>
+                                    <a href='/brand/{{ brand.getId }}'>{{ brand.getName }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- PAGE FOOTER -->
+            <div id='footer' class='col-md-12'>
+                <form action='/system_restore' method='post'>
+                    <input type='hidden' name='_method' value='delete'>
+
+                    <button type='submit' class='btn btn-default center-block'>Format C:</button>
+                </form>
+            </div>
+        </div><!-- END MAIN CONTAINER -->
+    </body>
+</html>

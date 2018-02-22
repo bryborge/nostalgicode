@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Client Search | Documentation</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='/../css/styles.css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class='container-fluid'>
+
+            <!-- TOP NAVIGATION -->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">CMS</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <!-- <li><a href='/'>Client Search<span class="sr-only">(current)</span></a></li> -->
+                            <li><a href="/dashboard">Dashboard</a></li>
+                            <li class="dropdown">
+                                <!-- ADMIN DROPDOWN -->
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/admin_meds_edit">Meds List</a></li>
+                                    <li><a href="/admin_flags_edit">Flags List</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="/admin_staff_edit">Staff List</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <!-- QUERIES DROPDOWN -->
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Queries<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Intakes - Last Month</a></li>
+                                    <li><a href="#">Intakes - 6 Months</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Database Dump</a></li>
+                                </ul>
+                            </li>
+                            <li class="active"><a href="/docs">Documentation</a></li>
+                            <li><a href="/credits">Credits</a></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <form class="navbar-form navbar-left" role="search">
+                                <div class="input-group">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                    </div>
+                                    <span class="input-group-btn">
+                                        <button type='submit' class='btn btn-primary'><span class="glyphicon glyphicon-search"></span></button>
+                                    </span>
+                                </div>
+                            </form>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+
+
+            <!-- HEADER -->
+            <div class='page-header'>
+                <h1>Client Search</h1>
+                <p>an open-source client management system</p>
+            </div>
+
+            <!-- MAIN CONTENT -->
+            <h2>Documentation</h2>
+
+            <div class="container">
+                <div id="introduction" class="doc-paragraph">
+                    <h4>Introduction</h4>
+                    <p>Welcome to Client Management System (CMS), a tool designed to leverage the power of computers to make the lives of non-profit shelter workers just a little less hectic.</p>
+                </div>
+
+                <div id="purpose" class="doc-paragraph">
+                    <h4>Purpose</h4>
+                    <p>This project was intially put together as a class assignment at <a href="https://www.epicodus.com/" target="_blank">Epicodus</a>, a Portland-based Coding Bootcamp.  Technology is developing at an unprecidented rate, with no signs of slowing down, leaving many non-profit organizations that are already struggling to remain open considerably behind the curve.  It is our hope that shelters across the globe will benefit from this open-source project.</p>
+                </div>
+
+                <div id="how-to-search" class="doc-paragraph">
+                    <h4>Search Functionality</h4>
+                    <p>The user can search for a client easily by first or last name, as well as birthdate.  The search bar can be found on the main search page in the center of the screen and every page in the navigation bar.  Clickable results appear in a grey box below the search bar on the main page.  Clicking on that client's name will send the user to the client edit page, where they can read and update that client's information.  If a search produces no results for that query, the client is prompted to add that client to the database.  If the user does not wish to add a new user, then they can simply enter a new search.</p>
+                </div>
+
+                <div id="how-to-dash" class="doc-paragraph">
+                    <h4>The Dashboard</h4>
+                    <p>The Dashboard is the pinnacle of the app, where the user can easily access pertinent information about their clients on the fly.  By clicking on the client's name in the list on the left, that client's information is presented on the right of the screen.  If the user would like to update that client's information, click on the edit button next to their name, and that will send the user to the client update page.  If the user would like to exit the client from the shelter (thereby closing out a client's stay in the database), simply click the "exit" button next to the client's name on the left, which will send the user to the Exit Client page.  Once filled out and submitted, the user will be sent back to the Dashboard page, where they will have one fewer client in the list of current stays.</p>
+                </div>
+
+                <div id="how-to-queries" class="doc-paragraph">
+                    <h4>Querying the Data</h4>
+                    <p>COMING SOON!</p>
+                </div>
+
+                <div id="git-help" class="doc-paragraph">
+                    <h4>Git Help</h4>
+                    <p>Github is a repository hosting service, which gives users of the site the ability to create and collaborate on programming projects.  If you are unfamiliar with Github, check it out <a href="http://en.wikipedia.org/wiki/GitHub" target="_blank">here</a>.</p>
+                    <p>Would you like to contribute?  Roll this into your own tailored Client Management System?  Check out the Repository on Github by clicking <a href="https://github.com/monkecheese/Client-Management-System" target="_blank">here</a> and submitting a pull request.</p>
+                </div>
+            </div>
+
+        </div><!-- END DIV CONTAINER -->
+    </body>
+</html>

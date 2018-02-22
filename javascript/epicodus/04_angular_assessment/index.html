@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="freemancer" ng-controller="FreemancerCtrl">
+<head>
+  <meta charset="utf-8">
+  <title>Freemancer</title>
+  <script src="lib/angular.js"></script>
+  <script src="lib/angular-ui-router.js"></script>
+  <script src="app.js"></script>
+  <!-- <link href="lib/bootstrap.css" rel="stylesheet"> -->
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <navbar></navbar>
+  <div ui-view="jumbotron"></div>
+  <div ui-view="hirebox" ng-show="hire" class="overlay"></div>
+  <div ui-view="workbox" ng-show="work" class="overlay"></div>
+  <div ui-view="loginbox" ng-show="login" class="overlay"></div>
+  <div ui-view="signupbox" ng-show="signup" class="overlay"></div>
+
+</body>
+</html>

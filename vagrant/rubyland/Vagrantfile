@@ -1,0 +1,26 @@
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  # Ubuntu 14.04 (Trusty Tahr) 64bit
+  config.vm.box = "ubuntu/trusty64"
+
+  # Config VM to run with 2GB RAM
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--memory", "2048"]
+  end
+
+  # Forward default Rails server port to host
+  config.vm.network :forwarded_port, guest: 3000, host: 3000
+
+  # Set Write Permissions on synced folder
+  config.vm.synced_folder ".", "/vagrant", :mount_options => ['dmode=777','fmode=777']
+
+  # Provision
+  config.vm.provision "shell", path: "provision/bash.sh"
+
+  config.vm.provision "puppet" do |puppet|
+    puppet.manifests_path = "provision/manifests"
+    puppet.manifest_file  = "default.pp"
+    puppet.module_path = "provision/modules"
+  end
+end

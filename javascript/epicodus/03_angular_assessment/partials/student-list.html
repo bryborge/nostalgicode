@@ -1,0 +1,33 @@
+<div class="header">
+  <h2>Student List</h2>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <input ng-model="query" type="text" class="form-control" placeholder="Search for student">
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-md-6" ng-show="students.length">
+    <table class="table table-striped">
+      <tr>
+        <th>
+          <a href="" ng-click="predicate = 'name'; reverse = false">Student Name</a>
+          (<a href="" ng-click="predicate = '-name'; reverse = false">^</a>)
+        </th>
+        <th><a href="" ng-click="predicate = 'status'; reverse = !reverse">Status</a></th>
+      </tr>
+
+      <tr ng-repeat="item in filtered = (students | filter:query:startsWith) | orderBy:predicate:reverse">
+        <td>{{ item.name }}</td>
+        <td>
+          <p id="in" ng-hide="item.status === false">Signed In</p>
+          <p id="out" ng-hide="item.status === true">Signed Out</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>

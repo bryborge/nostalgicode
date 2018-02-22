@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- META -->
+        <meta charset="utf-8">
+
+        <!-- STYLES -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link href="css/styles.css" rel="stylesheet">
+
+        <!-- JS -->
+        <script src="js/jquery-1.11.2.js"></script>
+        <script src="js/scripts.js"></script>
+
+        <!-- TITLE -->
+        <title>Queen Attack!</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Queen Attack Checker</h1>
+
+            <form id="attack-check">
+                <div class="form-group">
+                    <label for="x1-coordinate">Enter your queen's coordinates:</label>
+                    <input id="x1-coordinate" type="number">
+                    <input id="x2-coordinate" type="number">
+                </div>
+                <div class="form-group">
+                    <label for="y1-coordinate">Enter your target's coordinates:</label>
+                    <input id="y1-coordinate" type="number">
+                    <input id="y2-coordinate" type="number">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Find Out!</button>
+            </form>
+
+            <div id="result">
+                <p>The queen can<span class="not"></span> attack!</p>
+            </div>
+        </div>
+    </body>
+</html>

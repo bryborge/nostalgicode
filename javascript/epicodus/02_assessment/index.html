@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- META -->
+        <meta charset='utf-8'>
+
+        <!-- STYLES -->
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='css/styles.css'>
+
+        <!-- SCRIPTS -->
+        <script src='https://code.jquery.com/jquery-1.11.2.min.js'></script>
+        <script src='js/scripts.js'></script>
+
+        <!-- TITLE -->
+        <title>Binary Pizza Co | Home of 10</title>
+    </head>
+    <body>
+        <div class='container'>
+          <div class='page-header'>
+            <h1>Binary Pizza Company</h1>
+            <h4>home of 10 topping choices</h4>
+          </div>
+          <div class='row'>
+            <div id='initial-choice' class='col-md-6'>
+              <form id='pizza-form' method='post'>
+                <div class='form-group'>
+                  <label for='topping-type'>What kind of pizza do you want?</label>
+                  <select id='topping-type' class='form-control' required>
+                    <option value='' selected disabled>Please select one</option>
+                    <option value='Cheese'>Cheese</option>
+                    <option value='Pepperoni'>Pepperoni</option>
+                  </select>
+                </div>
+                <button type='submit' class='btn btn-primary'>Select</button>
+              </form>
+            </div>
+
+            <div id='pizza-order' class='col-md-6'>
+              <h3 id='pizza-name'></h3>
+              <h4 id='pizza-cost'></h4>
+            </div>
+          </div>
+        </div><!-- END DIV CONTAINER -->
+    </body>
+</html>

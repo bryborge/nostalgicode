@@ -1,0 +1,79 @@
+<html ng-app="AnimalShelter">
+    <head>
+        <title>Animal Shelter</title>
+
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/styles.css">
+
+        <script src="lib/angular.js"></script>
+        <script src="app.js"></script>
+        <script src="controllers/AnimalCtrl.js"></script>
+    </head>
+    <body>
+        <div class="container" ng-controller="AnimalCtrl">
+            <h1>Welcome to Animal Shelter</h1>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Add Animals</h2>
+                    <form ng-submit="addAnimal()">
+                        <div class="form-group">
+                            <input type="text" ng-model="animalName" class="form-control" placeholder="Enter animal name" required>
+
+                        </div>
+
+                        <div class="form-group">
+                            <select class="form-control" ng-model="animalType" required>
+                                <option value="" selected disabled>Select animal type</option>
+                                <option value="dog">Dog</option>
+                                <option value="cat">Cat</option>
+                                <option value="dolphin">Dolphin</option>
+                                <option value="sloth">Sloth</option>
+                                <option value="bear">Bear</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-default">Add</button>
+                    </form>
+
+                    <h3>Shelter Animals</h3>
+                    <ul>
+                        <li ng-repeat="item in animals">
+                            <a ng-click="adoptAnimal(item)"> {{ item.name }} </a> the {{ item.type }}
+                            <button ng-hide="edit" ng-click="edit = true" class="btn btn-primary btn-xs">Edit</button>
+
+                            <form ng-show = "edit" class="form-inline" ng-submit="edit = false">
+                                <input type="text" class="form-control" ng-model="item.name">
+                                <button class="btn btn-primary btn-xs">Change</button>
+                            </form>
+                            <button ng-click="deleteAnimal(item)" class="btn btn-danger btn-xs">Kill</button>
+                        </li>
+                    </ul>
+
+                    <h3>Adopted Animals</h3>
+                    <ul>
+                        <li ng-repeat="item in adoptedAnimals">
+                            {{ item.name }} the {{ item.type }}
+                            <a ng-click="unadoptAnimal(item)">
+                                abandon
+                            </a>
+                            <button ng-click="deleteAnimal(item)" class="btn btn-danger btn-xs">Kill</button>
+                        </li>
+                    </ul>
+
+                    <h2>Search Animals</h2>
+                    <input type="text" ng-model="query.name" class="form-control">
+
+                    <h3>All Animals</h3>
+                    <ul>
+                        <li ng-repeat="animal in animals | filter:query:startsWith">
+                            {{ animal.name }} the {{ animal.type }}
+                        </li>
+                        <li ng-repeat="adopted in adoptedAnimals | filter:query:startsWith">
+                            {{ adopted.name }} the {{ adopted.type }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

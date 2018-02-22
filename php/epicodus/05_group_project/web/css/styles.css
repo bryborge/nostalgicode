@@ -1,0 +1,74 @@
+/* GLOBALS */
+
+ul {
+    list-style-type: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+
+/* MAIN PAGE */
+
+#main-search-content {
+    padding: 150px 0 0 0;
+    text-align: center;
+}
+
+#main-search {
+    padding: 50px 0 20px 0;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+#search-field {
+    width: 80%;
+}
+
+
+/* ADD CLIENT PAGE */
+
+#success-msg {
+    text-align: center;
+}
+
+
+/* DASHBOARD PAGE */
+
+.btn-xs {
+    margin: 0 10px 5px 0;
+}
+
+.form-inline {
+    display: inline;
+}
+
+#edit-client-btn {
+    margin: 0 0 0 25px;
+}
+
+
+/* DOCUMENTATION PAGE */
+
+.doc-paragraph {
+    margin-top: 30px;
+}
+
+
+/* CREDITS PAGE */
+
+.avatar-picture {
+    height: 150px;
+    width: 150px;
+    border-radius: 75px;
+    float: left;
+    clear: both;
+    margin: 15px;
+
+}
+
+.col-md-4 {
+    padding: 25px;
+}

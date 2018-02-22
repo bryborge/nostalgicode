@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="StudentSignin">
+  <head>
+    <!-- META -->
+    <meta charset="UTF-8">
+
+    <!-- TITLE -->
+    <title>Student Signin</title>
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- ANGULAR -->
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-ui-router.js"></script>
+
+    <!-- APP -->
+    <script src="app.js"></script>
+
+    <!-- FACTORIES & SERVICES -->
+    <script src="services/StudentsFactory.js"></script>
+    <script src="controllers/StudentsController.js"></script>
+
+  </head>
+  <body>
+    <div class="container">
+      <a ui-sref="home">Home</a> | <a ui-sref="add">Add Student</a> | <a ui-sref="signin">Sign In</a> | <a ui-sref="student-list">Who's Here</a>
+
+      <!-- VIEWS -->
+      <div ui-view> </div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>frenemy | an (anti)revolution</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='css/styles.css'>
+    </head>
+    <body>
+        <div class='container'>
+
+            <a href='/'><div class='page-header'>
+                <h1><img src='img/ipear-logo.png'> frenemy</h1>
+                <h5>an (anti)revolutionary way to store contacts</h5>
+            </div></a>
+
+            <div class='row'>
+                <div class='col-md-8'>
+                    <h3>enter a contact below</h3>
+                    <br>
+                    <form action='/add_contact' method='post' class='form-horizontal'>
+                        <div class='form-group'>
+                            <label for='name'>Name</label>
+                            <input type='text' name='name' class='form-control' tabindex='1'>
+                            <br>
+                            <label for='phone'>Phone</label>
+                            <input type='tel' name='phone' class='form-control' tabindex='2'>
+                            <br>
+                            <label for='address'>Address</label>
+                            <input type='text' name='address' class='form-control' tabindex='3'>
+                            <br>
+                            <label for='url_image'>Contact Picture</label>
+                            <input type='text' name='url_image' class='form-control' tabindex='4'>
+                        </div>
+
+                        <button type='submit' formaction='/delete_all_contacts' class='btn btn-danger' tabindex='6'>Delete All</button>
+                        <button type='submit' class='btn btn-success' tabindex='5'>Submit</button>
+                    </form>
+
+                </div> <!-- END COLUMN ONE -->
+
+                <div class='col-md-4'>
+
+                    {% if contacts is not empty %}
+                        <h3>my contacts</h3>
+
+                        <ul>
+                        {% for contact in contacts %}
+                            <li class='li-name'><img src='{{ contact.getImage }}' class='img-circle'> {{ contact.getName }}</li>
+                            <ul>
+                                <!-- <li><span class='li-style'> image: </span><img src='{{ contact.getImage }}'></li> -->
+                                <li><span class='li-style'> phone: </span> {{ contact.getPhone }} </li>
+                                <li><span class='li-style'> address: </span> {{ contact.getAddress }} </li>
+                                <!-- <li><span class='li-style'> image: </span><a href='{{ contact.getImage }}'> {{ contact.getImage }} </a></li> -->
+                            </ul>
+                            <br>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+
+                </div> <!-- END COLUMN TWO -->
+
+            </div> <!-- END ROW DIV -->
+
+        </div> <!-- CLOSING DIV CONTAINER -->
+    </body>
+</html>

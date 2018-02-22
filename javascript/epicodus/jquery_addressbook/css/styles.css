@@ -1,0 +1,30 @@
+#show-contact {
+    display: none;
+}
+
+.contact {
+    cursor: pointer;
+    color: #0088cc;
+}
+
+.contact:hover {
+    text-decoration: underline;
+}
+
+.main-heading {
+  float: left;
+}
+
+.project-github-link {
+  float: right;
+  margin-top: 65px;
+}
+
+.project-github-link a, .project-github-link p {
+  display: inline-block;
+}
+
+.project-github-link a {
+  padding: 3px 6px;
+  font-weight: 600;
+}

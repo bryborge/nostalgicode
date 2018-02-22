@@ -1,0 +1,23 @@
+<div class="header">
+  <h2>Sign In Sheet</h2>
+</div>
+
+<div class="col-md-6" ng-show="students.length">
+  <table class="table table-striped">
+    <tr>
+      <th>
+        <a href="" ng-click="predicate = 'name'; reverse = false">Student Name</a>
+        (<a href="" ng-click="predicate = '-name'; reverse = false">^</a>)
+      </th>
+      <th>Sign in</th>
+    </tr>
+
+    <tr ng-repeat="item in students | orderBy:predicate:reverse">
+      <td>{{ item.name }}</td>
+      <td>
+        <a ng-hide="item.status === true" ng-click="signIn(item)" class="btn btn-success btn-xs">Sign In</a>
+        <a ng-hide="item.status === false" ng-click="signOut(item)" class="btn btn-danger btn-xs">Sign Out</a>
+      </td>
+    </tr>
+  </table>
+</div>

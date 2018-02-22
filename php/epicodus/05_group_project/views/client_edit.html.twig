@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Client Search | Edit Client</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='css/styles.css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class='container-fluid'>
+
+            <!-- TOP NAVIGATION -->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">CMS</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <!-- <li><a href='/'>Client Search<span class="sr-only">(current)</span></a></li> -->
+                            <li><a href="/dashboard">Dashboard</a></li>
+                            <li class="dropdown">
+                                <!-- ADMIN DROPDOWN -->
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/admin_meds_edit">Meds List</a></li>
+                                    <li><a href="/admin_flags_edit">Flags List</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="/admin_staff_edit">Staff List</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <!-- QUERIES DROPDOWN -->
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Queries<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Intakes - Last Month</a></li>
+                                    <li><a href="#">Intakes - 6 Months</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Database Dump</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/docs">Documentation</a></li>
+                            <li><a href="/credits">Credits</a></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <form class="navbar-form navbar-left" role="search">
+                                <div class="input-group">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                    </div>
+                                    <span class="input-group-btn">
+                                        <button type='submit' class='btn btn-primary'><span class="glyphicon glyphicon-search"></span></button>
+                                    </span>
+                                </div>
+                            </form>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+
+
+            <!-- HEADER -->
+            <div class='page-header'>
+                <h1>Client Search</h1>
+                <p>an open-source client management system</p>
+            </div>
+
+            <!-- MAIN CONTENT -->
+            <h2>Edit {{ client.getLastName }}, {{ client.getFirstName }}</h2>
+
+            <div class="row">
+
+                <!-- CLIENT INFORMATION -->
+                <div class="col-md-6">
+                    <div class="container-fluid">
+                        <h4>Basic</h4>
+                        <p><strong>DOB:</strong> {{ client.getDob }}</p>
+                        <p><strong>Gender:</strong> {{ client.getGender }}</p>
+                        <p><strong>Race:</strong> {{ client.getRace }}</p>
+                        <p><strong>Ethnicity:</strong> {{ client.getEthnicity }}</p>
+                    </div>
+
+                    <div class="container-fluid">
+                        <h4>Flags</h4>
+                        <p><strong>Admit Status:</strong> {{ client.getAdmitStatus }}</p>
+                        <p><strong>Last Assessed:</strong> {{ client.getLastAssessed }}</p>
+                    </div>
+
+                    <div class="container-fluid">
+                        <h4>Stay</h4>
+                        <p><strong>Intake Staff:</strong>
+                            {% for staff in staffs %}
+                                [{{ staff.getName }}]
+                            {% endfor %}
+                        </p>
+                        <p><strong>Social Worker:</strong>
+                            {% for worker in workers%}
+                                [{{ worker.getName }}]
+                            {% endfor %}
+                        </p>
+                        <p><strong>Intake:</strong> {{ stay.getIntakeDateTime }}</p>
+                        <p><strong>Run/Risk:</strong> {{ stay.getRunRisk ? "Run" : "Risk" }}</p>
+                    </div>
+
+                    <div class="container-fluid">
+                        <h4>Health Information</h4>
+                        <p><strong>Medication:</strong>
+                            {% for med in meds %}
+                                [{{ med.getMedName }}]
+                            {% endfor %}
+                        </p>
+                        <p><strong>Allergies:</strong>
+                            {% for allergy in allergies %}
+                                [{{ allergy.getAllergyType }}]
+                            {% endfor %}
+                        </p>
+                        <p><strong>Lice:</strong> {{ stay.getLice ? "Yes" : "No" }}</p>
+                    </div>
+
+                </div>
+
+                <!-- EDIT CLIENT INFORMATION -->
+                <div class="col-md-6">
+                    <form action="/edit/{{ client.getId }}" method="post">
+                        <input name='_method' type='hidden' value='patch'>
+                        <h4>Basic</h4>
+                        <div class="form-group">
+                            <label for="first-name">First</label>
+                            <input type="text" name="first-name" placeholder="First Name" class="form-control">
+
+                            <label for="last-name">Last</label>
+                            <input type="text" name="last-name" placeholder="Last Name" class="form-control">
+
+                            <label for="alias">Alias</label>
+                            <input type="text" name="alias" placeholder="Alias (i.e. Street Name or Nickname)" class="form-control">
+
+                            <label for="dob">Birth Date</label>
+                            <input type="text" name="dob" placeholder="Date of Birth" class="form-control">
+
+                            <label for="gender">Gender</label>
+                            <select class="form-control" name="gender">
+                                <option value="" disabled selected>Please select</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="transgender">Transgender</option>
+                                <option value="unknown">Unknown</option>
+                            </select>
+                            <!-- <input type="text" name="gender" placeholder="Gender" class="form-control"> -->
+
+                            <label for="race">Race</label>
+                            <select class="form-control" name="race">
+                                <option value="" disabled selected>Please select</option>
+                                <option value="white">White</option>
+                                <option value="african">African American</option>
+                                <option value="hispanic">Hispanic</option>
+                                <option value="russian">Russian</option>
+                                <option value="asian">Asian</option>
+                                <option value="islander">Pacific Islander</option>
+                                <option value="unknown">Unknown</option>
+                            </select>
+                            <!-- <input type="text" name="race" class="form-control"> -->
+                        </div>
+
+                        <h4>Flag</h4>
+                        <div class="form-group">
+                            <label for="admit-status">Admit Status</label>
+                            <select class="form-control" name="admit-status">
+                                <option value="" disabled selected>Please select</option>
+                                <option value="admitable">Admittable</option>
+                                <option value="prior-approval">Supervisor Approval Required</option>
+                                <option value="no-admit">Not Admittable</option>
+                            </select>
+                            <!-- <input type="text" name="admit-status" placeholder="Admit Status" class="form-control"> -->
+
+                            <label for="last-assessed">Last Assessed</label>
+                            <input type="text" name="last-assessed" placeholder="Last Assessed" class="form-control">
+
+                            <label for="flag-type">Flag Type</label>
+                            <input type="text" name="flag-type" placeholder="Flag Type" class="form-control">
+                        </div>
+
+                        <h4>Stay Information</h4>
+                        <div class="form-group">
+                            <label for="intake-staff">Intake Staff</label>
+                            <input type="text" name="intake-staff" placeholder="Staff Name" class="form-control">
+
+                            <label for="social-worker">Social Worker</label>
+                            <input type="text" name="social-worker" placeholder="Worker Name" class="form-control">
+
+                            <label for="intake-date">Intake Date</label>
+                            <input type="text" name="intake-date" placeholder="Date" class="form-control">
+
+                            <label for="intake-time">Intake Time</label>
+                            <input type="text" name="intake-time" placeholder="Time" class="form-control">
+
+                            <label for="run-risk">Run/Risk</label>
+                            <select class="form-control" name="run-risk">
+                                <option value="" disabled selected>Please select</option>
+                                <option value="1">Runaway</option>
+                                <option value="0">At-Risk</option>
+                            </select>
+                        </div>
+
+                        <h4>Health Information</h4>
+                        <div class="form-group">
+                            <label for="meds">Medication</label>
+                            <select class="form-control" name="meds">
+                                <option value="" disabled selected>Please select</option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                            <!-- <input type="text" name="meds" placeholder="Medications, Y or N" class="form-control"> -->
+
+                            <label for="allergies">Allergies</label>
+                            <select class="form-control" name="allergies">
+                                <option value="" disabled selected>Please select</option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                            <!-- <input type="text" name="allergies" placeholder="Allergies, Y or N" class="form-control"> -->
+
+                            <label for="lice">Lice</label>
+                            <select class="form-control" name="lice">
+                                <option value="" disabled selected>Please select</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                            <!-- <input type="text" name="lice" placeholder="Lice, Y or N" class="form-control"> -->
+                        </div>
+
+                        <!-- <button type="submit" name="cancel" formaction="/dashboard" class="btn btn-default">Cancel</button> -->
+                        <button type="submit" name="button" class="btn btn-success">Update</button>
+                    </form>
+                </div>
+            </div>
+
+        </div><!-- END DIV CONTAINER -->
+    </body>
+    <footer>
+            <!-- unsure what will go here.  epicodus link, perhaps? github linl?  credits? -->
+    </footer>
+</html>

@@ -1,0 +1,208 @@
+/*--------------*/
+/* SITE GLOBALS */
+/*--------------*/
+
+
+a:hover {
+  text-decoration: none;
+}
+
+th {
+  width: 20%;
+}
+
+
+.center-main {
+  text-align: center;
+  margin-top: 100px;
+}
+
+
+
+.main-heading {
+  float: left;
+}
+
+.project-github-link {
+  float: right;
+  margin-top: 65px;
+}
+
+.project-github-link a, .project-github-link p {
+  display: inline-block;
+}
+
+.project-github-link a {
+  padding: 3px 6px;
+  font-weight: 600;
+}
+
+/*-----------------------*/
+/* PERIODIC TABLE STYLES */
+/*-----------------------*/
+
+
+/* Globals */
+
+.ptable {
+  position: relative;
+  margin:0 auto;
+}
+
+.ptable-row, .actinide-group {
+  display: block;
+  height: 65px;
+  width: 1200px;
+  margin: 0px auto;
+  position: relative;
+}
+
+.lanthanide-group {
+  display: block;
+  height: 65px;
+  width: 1200px;
+  margin: 35px auto 4px auto;
+  position: relative;
+}
+
+.element, .blank-element, .lanthanide-placeholder, .actinide-placeholder {
+  vertical-align: top;
+  height: 65px;
+  width: 60px;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.element-repeat {
+  cursor: default;
+}
+
+.lanthanide-placeholder a:hover, .actinide-placeholder a:hover {
+  cursor: default;
+}
+
+
+/* Element Tile Styles */
+
+.element {
+  border: 1px solid #000;
+  border-radius: 2px;
+}
+
+.element:hover {
+  box-shadow: 0px 0px 8px #000;
+  margin-top: 2px;
+}
+
+.lanthanides:hover {
+  box-shadow: 0px 0px 8px #000;
+  margin-top: 38px;
+}
+
+.blank-element:hover, .lanthanide-placeholder:hover, .actinide-placeholder:hover {
+  box-shadow: none;
+  cursor: default;
+}
+
+.blank-element:active, .lanthanide-placeholder:active, .actinide-placeholder:active  {
+  pointer-events: none;
+  /*cursor: default;*/
+}
+
+.lanthanides, .lanthanides.lanthanide-placeholder {
+  margin-top: 40px;
+  box-shadow: none;
+}
+
+.actinides {
+  margin-bottom: 100px;
+}
+
+.lanthanide-placeholder, .actinide-placeholder {
+  background-color: #e2e2e2;
+  border: 1px solid #000;
+  border-radius: 2px;
+}
+
+
+/* Colors */
+
+.rare-earth-metals {
+  background-color: #922654;
+}
+
+.non-metals {
+  background-color: #0F4286;
+}
+
+.halogens {
+  background-color: #51346D;
+}
+
+.other-metals {
+  background-color: #0F646D;
+}
+
+.noble-gases {
+  background-color: #712D61;
+}
+
+.alkali-metals {
+  background-color: #1F4534;
+}
+
+.alkali-earth-metals {
+  background-color: #1D6345;
+}
+
+.transition-metals {
+  background-color: #0F8653;
+}
+
+.blank-element {
+  background-color: #fff;
+}
+
+
+/* Text Styles */
+
+.superscript, .centerscript, .subscript {
+  display: block;
+  margin: 3px;
+}
+
+.superscript {
+  font-size: 9px;
+  color: #fff;
+}
+
+.centerscript {
+  font-size: 18px;
+  color: #fff;
+}
+
+.subscript {
+  font-size: 8px;
+  color: #fff;
+}
+
+#lanthanide-placeholder, #actinide-placeholder {
+  position: relative;
+  color: #333;
+}
+
+#lanthanide-placeholder {
+  top: 19%;
+  transform: transformY(-19%);
+  font-weight: bold;
+  font-size: 26px;
+}
+
+#actinide-placeholder {
+  top: 18%;
+  transform: transformY(-18%);
+  font-weight: bold;
+  font-size: 34px;
+}

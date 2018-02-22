@@ -1,0 +1,66 @@
+------------------------------
+WHAT
+------------------------------
+
+*This app tells a user how many times a given word shows up in a string of words*
+
+(COMPLETE) -> If the user enters the single letter word "a", the user will be shown an integer representing how many times that single letter appeared in a string consisting of the same one letter word "a".
+    Input 1 (word being searched) = "a"
+    Input 2 (string to be searched) = "a"
+    Output = 1
+
+(COMPLETE) -> If the user enters the single letter word "a", the user will be shown an integer representing that the single letter word is not present in a string consisting of another single letter word "i".
+    Input 1 (word being searched) = "a"
+    Input 2 (string to be searched) = "i"
+    Output = 0
+
+(COMPLETE) -> If the user enters the single letter word "a", the user will be shown an integer representing that the single letter word is not present in a string consisting of no words (empty string).
+    Input 1 (word being searched) = "a"
+    Input 2 (string to be searched) = ""
+    Output = 0
+
+(COMPLETE) -> If the user enters the single letter word "a", the user will be shown an integer representing that the single letter word "a" is present in a string consisting of the same one letter word twice.
+    Input 1 (word being searched) = "a"
+    Input 2 (string to be searched) = "a leopard is not a pet"
+    Output = 2
+
+(COMPLETE) -> If the user enters the single letter word "i", the user will be shown an integer (0) representing that the single letter word "i" is not present in a string consisting of multiple different one letter words.
+    Input 1 (word being searched) = "i"
+    Input 2 (string to be searched) = "douglas adams is a great author"
+    Output = 0
+
+(COMPLETE) -> If the user enters the multiple letter word "and", the user will be shown an integer representing that the word is present in a string consisting of that one word only.
+    Input 1 (word being searched) = "and"
+    Input 2 (string to be searched) = "and"
+    Output = 1
+
+(COMPLETE) -> If the user enters the multiple letter word "and", the user will be shown an integer representing that the word is not present in a string consisting of different multiple words.
+    Input 1 (word being searched) = "and"
+    Input 2 (string to be searched) = "these are not the droids you are looking for"
+    Output = 0
+
+(COMPLETE) -> If the user enters the multiple letter word "coffee", the user will be shown an integer representing that the word is present in a string consisting of many different words, some of which are the word the user is searching for.
+    Input 1 = (word being searched) = "coffee"
+    Input 2 (string to be searched) = "my coffee addiction has gotten out of control since i started programming. what coffee shop sells the best coffee in town?"
+    Output = 3
+
+(COMPLETE) -> If the user enters the multiple letter word with capitalization "Hello", the user will be shown an integer representing that the word is present in a string consisting of many different words, including the word being searched, regardless of capitalization.
+    Input 1 (word being searched) = "Hello"
+    Input 2 (string to be searched) = "Hello world. How do you say hello in German?"
+    Output = 2
+
+BONUS -> If the user enters a multiple letter word, and the word is present in the string being searched next to punctuation, the user will be shown an integer representing how many times the word was found in the string.
+    Input 1 (word being searched) = "friend"
+    Input 2 (string to be searched) = "Hi friend. What are doing today?"
+    Output = 1
+
+------------------------------
+NOTES
+------------------------------
+
+***NEVER FEAR COMMITMENT!  DO IT OFTEN!***
+
+name Class RepeatCounter
+name method countRepeats
+    countRepeats takes two arguments -> 1) word being searched for and
+                                        2) string being searched

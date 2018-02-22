@@ -1,0 +1,54 @@
+<?php // include('../includes/navbar.php'); ?>
+
+<!DOCTYPE html>
+<html lang="en" ng-app="PeriodicTable">
+  <head>
+    <!-- META -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- TITLE -->
+    <title>Periodic Table of Elements | AngularJS</title>
+
+    <!-- EXTERNAL STYLES -->
+    <!-- <link rel="stylesheet" href="../css/styles.css"> -->
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- ANGULAR -->
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-ui-router.js"></script>
+
+    <!-- APP -->
+    <script src="app.js"></script>
+
+    <!-- FACTORIES & SERVICES -->
+    <script src="controllers/TableController.js"></script>
+
+  </head>
+  <body>
+    <div class="container">
+      <!-- NAVIGATION -->
+      <a ui-sref="main">Interactive Table</a> | <a ui-sref="element-sort">Element Sort</a>
+
+      <!-- HEADER -->
+      <div class="page-header">
+        <div class="main-heading">
+          <h1>Periodic Table of the Elements</h1>
+          <h4>a study in app development with AngularJS</h4>
+        </div>
+        <div class="project-github-link">
+          <p>Find this app on: </p>
+          <a href="https://github.com/monkecheese/periodic_table" target="_blank" class="btn btn-default">Github</a>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <!-- VIEWS -->
+      <div ui-view> </div>
+
+    </div>
+  </body>
+</html>

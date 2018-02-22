@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Roman Numerals</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="css/styles.css" type="text/css">
+        <script src="js/jquery-1.11.2.js"></script>
+        <script src="js/scripts.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <img src="img/plumage.jpg"/>
+                <h1>Roman Numerals</h1>
+            </div>
+
+            <div class="container-fluid">
+                <form id="value-input">
+                    <div class="form-group">
+                        <label for="value">Enter a number to convert to a Roman numeral:</label>
+                        <input type="number" name="value" id="value" class="form-control" placeholder="0">
+                    </div>
+                    <button type="submit" class="btn btn-info">Convert</button>
+                </form>
+
+                <div id="result">
+                    <h3>The Roman Numeral Equivalent is:</h3>
+                    <h2 id="converted" class="text-danger"></h2>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

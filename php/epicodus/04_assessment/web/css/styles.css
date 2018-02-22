@@ -1,0 +1,63 @@
+/* GLOBALS */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0 0 10px 0;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: grey;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+/* CLASSES */
+
+.page-header img {
+    height: 75px;
+    width: 65px;
+    float: left;
+    clear: both;
+    margin-right: 10px;
+}
+
+.btn-primary {
+    float: right;
+    margin: 8px 0 0 0;
+}
+
+.btn-xs {
+    margin: 0 10px 5px 0;
+}
+
+.form-inline {
+    display: inline;
+}
+
+
+/* IDS */
+
+#description {
+    text-align: center;
+    font-style: italic;
+    margin: 0 0 45px 0;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px auto;
+}

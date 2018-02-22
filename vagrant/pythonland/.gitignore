@@ -1,0 +1,9 @@
+.vagrant/
+learn_python/
+learn_django/
+bin/
+build/
+include/
+lib/
+local/
+.pyc

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Style-On Salon | Clients</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='../css/styles.css'>
+    </head>
+    <body>
+
+    <div class = 'container'>
+        <div class='page-header'>
+            <img src='../img/female-avatar-default.jpg'><h1> {{ stylist.getName }}</h1>
+            <p><a href="/stylists/{{ stylist.getId }}/edit">Edit this stylist</a></p>
+        </div>
+
+        <div class='col-md-8'>
+            <h3>Add a client</h3>
+
+            <form action='/clients' method='post'>
+                <input name='stylist_id' type='hidden' value='{{ stylist.getId() }}' id='stylist_id'>
+
+                <label for='name'>Client name</label>
+                <input name='name' type='text' class='form-control' id='name'>
+
+                <button type='submit' class='btn btn-primary'>Add Client</button>
+            </form>
+        </div>
+
+        <div class='col-md-4'>
+            {% if clients is not empty %}
+                <p>Here are all your clients:</p>
+                <ul>
+                    {% for client in clients %}
+                        <li>{{ client.getName }}</li>
+                    {% endfor %}
+                </ul>
+
+                <form action='/clients' method='post'>
+                    <input type='hidden' name='_method' value='delete'>
+                    <input type='hidden' name='stylist_id' value='{{ stylist.getId() }}'>
+
+                    <button type='submit' class='btn btn-warning'>Delete All</button>
+                </form>
+            {% endif %}
+        </div>
+
+    </div><!-- CLOSING DIV CONTAINER -->
+
+    <div class='page-footer' id='home-bottom'>
+        <p><a href='/'>Home</a></p>
+    </div>
+
+    </body>
+</html>

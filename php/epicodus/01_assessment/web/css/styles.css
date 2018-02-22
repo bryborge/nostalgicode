@@ -1,0 +1,43 @@
+/* STYLES */
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.btn {
+    float: right;
+    margin: 5px;
+}
+
+#home {
+    float: left;
+    margin: 5px;
+}
+
+.li-name {
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 20px;
+    list-style: none;
+}
+
+.li-style {
+    font-weight: bold;
+}
+
+li {
+    word-wrap: break-word;
+}
+
+h5 {
+    padding-left: 26px;
+    font-style: italic;
+}
+
+img {
+    width: 25px;
+    height: 30px;
+    text-align: center;
+    margin-right: 10px;
+}

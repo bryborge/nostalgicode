@@ -1,0 +1,16 @@
+<!-- PERIODIC TABLE - ASSEMBLED BY ANGULAR -->
+<div class="ptable-row">
+  <div ng-repeat="row in elements_rows">
+    <span ng-repeat="element in row">
+      <span class="element-repeat" ng-repeat="item in element">
+        <div id="{{ item.name }}" class="{{ item.class }} {{ item.subclass }} {{ item.type }}">
+          <a target="_blank" href="http://en.wikipedia.org/wiki/{{ item.name }}">
+            <span class="superscript">{{ item.number }}</span>
+            <span class="centerscript" id="{{ item.class }}">{{ item.symbol }}</span>
+            <span class="subscript">{{ item.name }}</span>
+          </a>
+        </div>
+      </span>
+    </span>
+  </div>
+</div>
