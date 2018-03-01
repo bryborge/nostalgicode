@@ -1,25 +1,27 @@
 <?php
 
+/**
+ * @backupGlobals disabled
+ * @backupStaticAttributes disabled
+ */
+
+require_once 'src/MyProjectClass.php';
+
+class MyProjectClassTest extends PHPUnit_Framework_TestCase
+{
     /**
-    * @backupGlobals disabled
-    * $backupStaticAttribute disabled
-    */
-
-    require_once "src/MyProjectClass.php";
-
-    class MyProjectClassTest extends PHPUnit_Framework_TestCase
+     * [test_myFunction_firstTest description]
+     * @return [type] [description]
+     */
+    function test_myFunction_firstTest()
     {
-        function test_myFunction_firstTest()
-        {
-            //Arrange
-            $test_MyProjectClass = new MyProjectClass;
+        //Arrange
+        $test_MyProjectClass = new MyProjectClass;
 
-            //Act
-            $result = $test_MyProjectClass->myFunction();
+        //Act
+        $result = $test_MyProjectClass->myFunction();
 
-            //Assert
-            $this->assertEquals( /* expectation */, $result);
-        }
+        //Assert
+        $this->assertEquals( /* expectation */, $result);
     }
-
-?>
+}
