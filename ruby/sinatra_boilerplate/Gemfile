@@ -1,7 +1,10 @@
-source('https://rubygems.org')
+source 'https://rubygems.org' do
+    gem 'sinatra'
+    gem 'sinatra-contrib'
 
-gem('sinatra')
-gem('sinatra-contrib')
-gem('rspec')
-gem('pry')
-gem('capybara')
+    group :development, :test do
+        gem 'rspec'
+        gem 'pry'
+        gem 'capybara'
+    end
+end

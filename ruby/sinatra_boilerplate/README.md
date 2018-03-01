@@ -1,5 +1,4 @@
 # Sinatra Boilerplate
 
-Assembled by Bryan Borgeson
-
-MIT License
+This is boilerplate to make app development in Sinatra a little faster. Or, you
+know ... just use Rails.  :P

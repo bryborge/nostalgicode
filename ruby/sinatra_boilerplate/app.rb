@@ -4,5 +4,5 @@ also_reload('lib/**/*.rb')
 # require('./lib/my_app')
 
 get('/') do
-  erb(:index)
+    erb(:index)
 end
