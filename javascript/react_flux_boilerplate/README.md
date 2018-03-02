@@ -25,6 +25,6 @@ If you're only interested in playing around with React, do the following:
 If you want to serve the React application with Hapi, do the following:
 
 1. `npm install -g webpack`
-1. `webpack -w client/app.js`
+1. `webpack --mode development -w client/app.js`
 1. In a separate terminal shell, `cd` into project directory and `npm run hapi`
 1. Navigate to `localhost:1337` in the browser

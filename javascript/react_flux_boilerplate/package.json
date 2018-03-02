@@ -24,14 +24,18 @@
     "webpack": "^4.0.1"
   },
   "devDependencies": {
-    "webpack-dev-server": "^3.1.0",
-    "webpack-cli": "^2.0.10"
+    "webpack-cli": "^2.0.10",
+    "webpack-dev-server": "^3.1.0"
   },
   "scripts": {
-    "dev": "webpack-dev-server --content-base server/assets/client --inline --hot",
+    "dev": "webpack-dev-server --mode development --content-base server/assets/client --inline --hot",
     "test": "echo \"Error: no test specified\" && exit 1",
     "hapi": "node app.js"
   },
   "author": "sonofborge",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
   "license": "MIT"
 }

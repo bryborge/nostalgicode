@@ -4,16 +4,9 @@ const fs = require('fs');
 
 module.exports = new class Server {
   constructor() {
-    this.server = new Hapi.Server();
-    let server = this.server;
+    this.server = new Hapi.Server({ port: 1337, host: 'localhost' });
 
-    this.start = this.start.bind(this);
-
-    server.connection({
-      port: 1337
-    });
-
-    server.register(require('./routes/router.js'), (err) => {
+    this.server.register(require('./routes/router.js'), (err) => {
       if (err) {
         return console.error('routes error: ', err);
       }

@@ -13,7 +13,6 @@ let register = (Server, options, next) => {
   });
 
   next();
-
 }
 
 register.attributes = {
