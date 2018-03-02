@@ -1,11 +1,14 @@
 module.exports = {
-  method: 'GET',
-  path: '/js/{script}',
-  handler: function(req, res) {
-    const fs = require('fs');
+    method: 'GET',
+    path: '/js/{script}',
+    handler: async (request, h) => {
+        const fs = require('fs');
+        let dir = __dirname + '/../../assets/client/js/' + request.params.script;
+        let file = fs.readFileSync(dir);
 
-    let file = fs.readFileSync(__dirname + '/../../assets/client/js/' + req.params.script);
+        const response = h.response(file);
+        response.type('application/javascript');
 
-    res(file).type('application/javascript');
-  }
+        return response;
+    }
 }

@@ -1,14 +1,14 @@
 module.exports = {
-  method: 'GET',
-  path: '/',
-  handler: (req, res) => {
-    const fs = require('fs');
-    let dir = __dirname + '/../../assets/client/index.html';
+    method: 'GET',
+    path: '/',
+    handler: async (request, h) => {
+        const fs = require('fs');
+        let dir = __dirname + '/../../assets/client/index.html';
+        let index = fs.readFileSync(dir);
 
-    let index = fs.readFileSync(dir);
+        const response = h.response(index);
+        response.type('text/html');
 
-    res(index)
-    .type('text/html')
-    .header('X-Custom', 'some-value');
-  }
+        return response;
+    }
 }

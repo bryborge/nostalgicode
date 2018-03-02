@@ -1,23 +1,24 @@
+'use strict';
+
 const fs = require('fs');
 
-let register = (Server, options, next) => {
-  let files = fs.readdirSync(__dirname + '/route_definitions');
+const register = async (server, options) => {
+    let files = fs.readdirSync(__dirname + '/route_definitions');
 
-  files.forEach((filename) => {
-    if (~filename.indexOf('.js')) {
-      let route = require(__dirname + '/route_definitions/' + filename);
+    files.forEach((filename) => {
+        if (~filename.indexOf('.js')) {
+            let route = require(__dirname + '/route_definitions/' + filename);
 
-      console.log('Initialize route:', route.path);
-      Server.route(route);
-    }
-  });
-
-  next();
+            console.log('Initialize route:', route.path);
+            server.route(route);
+        }
+    });
 }
 
-register.attributes = {
-  name: "router",
-  version: "1.0.0"
-};
+const myRouter = {
+    name: "myRouterPlugin",
+    version: "1.0.0",
+    register
+}
 
-module.exports = register;
+module.exports = myRouter;

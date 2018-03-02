@@ -1,30 +1,27 @@
+'use strict';
+
 const Hapi = require('hapi');
-const path = require('path');
-const fs = require('fs');
+const router = require('./routes/router.js');
+
+const DEFAULT_HOST = 'localhost';
+const DEFAULT_PORT = 1337;
 
 module.exports = new class Server {
-  constructor() {
-    this.server = new Hapi.Server({ port: 1337, host: 'localhost' });
+    constructor() {
+        this.server = Hapi.server({
+            host: DEFAULT_HOST,
+            port: DEFAULT_PORT,
+            app: {}
+        });
+    }
 
-    this.server.register(require('./routes/router.js'), (err) => {
-      if (err) {
-        return console.error('routes error: ', err);
-      }
-    });
-  } // constructor
-
-  start() {
-    return this.server.start((err) => {
-      if (err) {
-        return console.error('start error: ', err);
-      }
-
-      console.log('Server started at', this.server.info.uri)
-      return this.server;
-    });
-  } // start
-
-  stop(callback) {
-    this.server.stop(callback)
-  } // stop
+    async start() {
+        try {
+            await this.server.register(router);
+            await this.server.start();
+            console.log(`Hapi server running at ${this.server.info.uri}`);
+        } catch (err) {
+            console.error("Hapi error starting server", err);
+        }
+    }
 }
