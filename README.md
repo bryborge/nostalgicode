@@ -1,4 +1,4 @@
-# Dev Playground
+# NostalgiCODE
 
-Ground Zero for tinkering and learning all the things!  This is also home to
-several of my code projects from Epicodus, for reference ... and nostalgia.
+This is home to several code projects from Epicodus and online tutorials,
+for reference ... and nostalgia.
